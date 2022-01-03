@@ -1,0 +1,15 @@
+# 表示这是 compose 配置文件的版本
+version: '1'
+# 每个服务都是一个 Docker 容器
+# 所以必须用 image 指定服务的镜像名或者从 Dockerfile 中 build 镜像
+services:
+    back:
+        # 每个服务必须用 image 指定镜像名或者从 Dockerfile 中 build
+        # 这里用 image 指定镜像，redis:alpine 是 redis 项目的官方 Docker 镜像
+        # image: "redis:alpine"
+        build: .
+        ports: 
+            - "3000:3000"
+        volumes:
+            - .:/app
+
